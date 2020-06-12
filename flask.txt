@@ -1,0 +1,42 @@
+from flask import Flask, url_for
+
+app = Flask("test")
+
+@app.route('/')
+@app.route('/index')
+def index():
+    return "Привет"
+
+@app.route('/image_sample')
+def image():
+    return '''<img src="{}" alt="Вставка картинки тут">'''.format(url_for('static', filename='b1.jpg'))
+
+@app.route('/two_params/<username>/<int:number>')
+def two_params(username, number):
+    a = '''<!doctype html>
+    <html lang="en"
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>Пример с несколькими параметрами</title>
+    </head>
+    <body>
+    <h2>{}</h2>
+    <div>Это первый параметр и его тип: {}</div>
+    <h2>{}</h2>
+    <div>Это второй параметр и его тип: {}</div>
+    </body>
+    </html>'''.format(username, str(type(username))[1:-1], number, str(type(number))[1:-1])
+    return a
+
+app.run(port=8088, host='127.0.0.1')
+
+--------------------------------------------------------------------------
+# Шаблоны
+@app.route('/')
+@app.route('/index')
+def index():
+    user = "User"
+    title = "Home page"
+    return render_template('index.html', title=title, username=user)
