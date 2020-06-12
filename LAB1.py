@@ -4,9 +4,11 @@ import plotly.graph_objects as go
 # Строки
 str1 = "Конец"
 str2 = "Начало"
+
 # Кортеж
 tup = ('работы', 'программы', ' ')
 print (str2 + tup[2] + tup[0] + tup[2] + tup[1])
+
 alpha = 0.2
 dX = 0.1
 dTAU = 0.005
@@ -21,7 +23,6 @@ def f1(tau): return 20 + 5 * sin(tau)
 def f2(tau): return 30
 
 # x,tau,T
-
 Xarr = []
 xi = 0.0
 # Циклы
