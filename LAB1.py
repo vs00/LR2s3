@@ -4,11 +4,9 @@ import plotly.graph_objects as go
 # Строки
 str1 = "Конец"
 str2 = "Начало"
-
 # Кортеж
 tup = ('работы', 'программы', ' ')
 print (str2 + tup[2] + tup[0] + tup[2] + tup[1])
-
 alpha = 0.2
 dX = 0.1
 dTAU = 0.005
@@ -34,7 +32,6 @@ ti = 0.0
 while ti < TAUmax:
     TAUarr.append(ti)
     ti += dTAU
-
 Tarr = []
 i = 0
 while i < len(TAUarr):
